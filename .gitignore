@@ -1,1 +1,5 @@
 .ipynb_checkpoints/
+covid/programa/pyenv/
+covid/programa/.vscode/
+covid/programa/__pycache__/
+covid/programa/cache/
