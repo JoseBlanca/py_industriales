@@ -17,7 +17,7 @@ ORIG_ICU_COL = 'num_uci'
 ORIG_DEATHS_COL = 'num_def'
 
 PLOT_PARAM_DESCRIPTIONS = {ORIG_CASES_COL : 'Num. casos',
-                           ORIG_HOSP_COL: 'Num._hosp',
+                           ORIG_HOSP_COL: 'Num. hosp',
                            ORIG_ICU_COL: 'Num. uci',
                            ORIG_DEATHS_COL: 'Num. fallecidos'}
 
@@ -37,6 +37,8 @@ COMMUNITY_PLOT_DIR = PLOT_DIR / 'communities'
 COMMUNITY_PLOT_DIR.mkdir(exist_ok=True)
 PROVINCE_PLOT_DIR = PLOT_DIR / 'provinces'
 PROVINCE_PLOT_DIR.mkdir(exist_ok=True)
+AGE_GROUP_PLOT_DIR = PLOT_DIR / 'age_groups'
+AGE_GROUP_PLOT_DIR.mkdir(exist_ok=True)
 
 FOR_PANEL_EVOLUTION_FIG_SIZE = (8, 11)
 
