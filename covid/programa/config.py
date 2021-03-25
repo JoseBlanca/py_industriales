@@ -11,3 +11,15 @@ ORIG_SEX_COL = 'sexo'
 ORIG_DATE_COL = 'fecha'
 ORIG_PROVINCE_COL = 'provincia_iso'
 ORIG_AGE_GROUP_COL = 'grupo_edad'
+ORIG_CASES_COL = 'num_casos'
+ORIG_HOSP_COL = 'num_hosp'
+ORIG_ICU_COL = 'num_uci'
+ORIG_DEATHS_COL = 'num_def'
+
+MALE = 'H'
+FEMALE = 'M'
+
+PROVINCE = 'province'
+COMMUNITY = 'community'
+
+ORIG_COUNT_COLS = [ORIG_CASES_COL, ORIG_HOSP_COL, ORIG_ICU_COL, ORIG_DEATHS_COL]
