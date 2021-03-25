@@ -166,6 +166,7 @@ def _get_province_population():
 
 POPULATIONS_PER_PROVINCE = _get_province_population()
 
+
 def _get_provinces_per_ca():
     provinces_per_ca = defaultdict(list)
     for province, ca in CA_PER_PROVINCE.items():
@@ -180,3 +181,4 @@ def _get_ca_population():
     return pops_per_ca
 
 POPULATIONS_PER_CA = _get_ca_population()
+SPAIN_POPULATION = sum(POPULATIONS_PER_CA.values())

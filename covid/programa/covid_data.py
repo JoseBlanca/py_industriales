@@ -7,7 +7,8 @@ import numpy
 import pandas
 
 from download import get_isciii_dframe
-from spain_data import CA_PER_PROVINCE, POPULATIONS_PER_PROVINCE, POPULATIONS_PER_CA
+from spain_data import (CA_PER_PROVINCE, POPULATIONS_PER_PROVINCE,
+                        POPULATIONS_PER_CA, SPAIN_POPULATION)
 
 
 def get_frame(sex=None, date_range=None):
@@ -62,7 +63,7 @@ def get_evolutions_by_region(by_week=False, by=config.PROVINCE, sex=None,
         else:
             populations = POPULATIONS_PER_CA
 
-        evolutions = {region: evol / populations[region] for region, evol in evolutions.items()}
+        evolutions = {region: (evol / populations[region]) * 1e5 for region, evol in evolutions.items()}
 
     return evolutions
 
@@ -79,14 +80,15 @@ def get_evolutions_per_param(by=config.PROVINCE, sex=None, date_range=None,
 
     evolutions_by_param = {}
     for param in config.ORIG_COUNT_COLS:
-        param = config.ORIG_CASES_COL
         dframe2 = pandas.DataFrame({by: regions,
                                     param: dframe[param].values,
                                     'date': dframe[config.ORIG_DATE_COL].values})
-        evolutions_by_param[param] = dframe2.groupby(by=['date', by]).sum().unstack(level=1)
-        evolutions_by_param[param].columns = evolutions_by_param[param].columns.to_frame().iloc[:, 1].values
+        evolutions_for_param = dframe2.groupby(by=['date', by]).sum().unstack(level=1)
+        evolutions_for_param.columns = evolutions_for_param.columns.to_frame().iloc[:, 1].values
+        evolutions_by_param[param] = evolutions_for_param
+
     if by_week:
-        evolutions_by_param = {param: evol.resample('7D').sum() for region, evol in evolutions_by_param.items()}
+        evolutions_by_param = {param: evol.resample('7D').sum() for param, evol in evolutions_by_param.items()}
 
     if rate_by_100k:
         if by == config.PROVINCE:
@@ -94,13 +96,34 @@ def get_evolutions_per_param(by=config.PROVINCE, sex=None, date_range=None,
         else:
             region_populations = POPULATIONS_PER_CA
         populations = numpy.array([region_populations[region] for region in evolutions_by_param[param].columns])
-        evolutions_by_param = {param: evolution.div(populations, axis=1) for param, evolution in evolutions_by_param.items()}
+        evolutions_by_param = {param: evolution.div(populations, axis=1) * 1e5 for param, evolution in evolutions_by_param.items()}
     return evolutions_by_param
+
+
+def get_evolutions_for_spain(sex=None, date_range=None,
+                             rate_by_100k=False, by_week=False):
+
+    evolutions_per_province = get_evolutions_per_param(by=config.PROVINCE,
+                                                       sex=sex,
+                                                       date_range=date_range,
+                                                       rate_by_100k=False,
+                                                       by_week=by_week)
+    evolutions = {param: evolution.sum(axis=1) for param, evolution in evolutions_per_province.items()}
+    evolutions = pandas.DataFrame(evolutions)
+
+    if rate_by_100k:
+        evolutions = (evolutions / SPAIN_POPULATION) * 1e5
+
+    return evolutions
 
 
 if __name__ == '__main__':
     last_day = datetime.datetime.now() - datetime.timedelta(days=7)
     first_day = last_day - datetime.timedelta(days=15)
+
+    get_evolutions_for_spain(by_week=True, sex=config.MALE,
+                             date_range=(first_day, last_day),
+                             rate_by_100k=True)
 
     get_evolutions_by_region(by_week=True, sex=config.MALE,
                              date_range=(first_day, last_day),
@@ -109,6 +132,3 @@ if __name__ == '__main__':
     get_evolutions_per_param(by_week=True, sex=config.MALE,
                              date_range=(first_day, last_day),
                              by=config.COMMUNITY, rate_by_100k=True)
-
-    
-    
