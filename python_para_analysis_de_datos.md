@@ -1,5 +1,20 @@
 # Curso de análisis de datos en Python
 
+## Sobre el material
+
+El material que utilizaremos en este curso está en [github](https://github.com/JoseBlanca/py_industriales_2021).
+
+Podéis [descargar](https://github.com/JoseBlanca/py_industriales_2021/archive/refs/heads/main.zip) el material en la propia web de github o utilizando git:
+
+  git clone git@github.com:JoseBlanca/py_industriales_2021.git
+
+El material está compuesto por [Jupyter](https://jupyter.org/) Notebooks.
+JupyterLab está incluido con la instalación de [Anaconda](https://www.anaconda.com/products/individual).
+
+Vamos a organizar las clases alrededor de un ejemplo práctico: analizar los datos oficiales de afectados por covid en España.
+
+Además, también tenéis disponible el material organizado de un modo más convencional.
+
 ## Ejemplos
 
   - [Estadística básica](ejemplos/estadistica_basica.ipynb)
@@ -22,8 +37,6 @@
   - [Python 101 presentation](https://docs.google.com/presentation/d/1uMC-Al7nMi_Z9gq6E_r5wE6IG3ioEvQpv2hOtk8rLlc/edit?usp=sharing)
   - [Introducción a Python](python/introduccion_a_python.ipynb)
   - [Ejecutando Python](python/ejecutando_python.md)
-
-
   - [Tipos y variables](python/tipos_y_variables.ipynb)
   - [Cadenas de texto](python/cadenas_de_texto.ipynb)
   - [Booleanos](python/booleanos.ipynb)
