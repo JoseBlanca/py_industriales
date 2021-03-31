@@ -117,9 +117,24 @@ def get_evolutions_for_spain(sex=None, date_range=None,
     return evolutions
 
 
+def  _numpy_datetime_to_python_datetime(date):
+    return datetime.datetime.fromtimestamp(date.astype('O') / 1e9)
+
+
+def get_last_date_in_dframe(sex=None, date_range=None):
+    dframe = get_frame(sex=sex, date_range=date_range)
+    last_date = dframe[config.ORIG_DATE_COL].values[-1]
+
+    last_date = _numpy_datetime_to_python_datetime(last_date)
+    return last_date
+
+
 if __name__ == '__main__':
     last_day = datetime.datetime.now() - datetime.timedelta(days=7)
     first_day = last_day - datetime.timedelta(days=15)
+
+    get_last_date_in_dframe(sex=None, date_range=None)
+
 
     get_evolutions_for_spain(by_week=True, sex=config.MALE,
                              date_range=(first_day, last_day),
