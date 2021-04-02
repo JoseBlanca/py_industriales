@@ -7,11 +7,11 @@ import numpy
 import pandas
 
 from download import get_isciii_dframe
-from spain_data import (CA_PER_PROVINCE, POPULATIONS_PER_PROVINCE,
-                        POPULATIONS_PER_CA, SPAIN_POPULATION)
+from spain_data import CA_PER_PROVINCE
+import demography
 
 
-def get_frame(sex=None, date_range=None):
+def get_frame(sex=None, date_range=None, age_ranges=None):
 
     dframe = get_isciii_dframe()
 
@@ -23,12 +23,29 @@ def get_frame(sex=None, date_range=None):
         masks.append(dframe[config.ORIG_DATE_COL] >= date_range[0])
         masks.append(dframe[config.ORIG_DATE_COL] < date_range[1])
 
+    if age_ranges is None:
+        age_ranges = []
+    age_masks = []
+    for age_range in age_ranges:
+        this_mask = dframe[config.ORIG_AGE_GROUP_COL] == age_range
+        age_masks.append(this_mask)
+    this_mask = None
+    if age_masks:
+        for age_mask in age_masks:
+            if this_mask is None:
+                this_mask = age_mask
+            else:
+                this_mask = numpy.logical_or(age_mask, this_mask)
+    if this_mask is not None:
+        masks.append(this_mask)
+
     mask = None
     for one_mask in masks:
         if mask is None:
             mask = one_mask
         else:
             mask = numpy.logical_and(mask, one_mask)
+    if mask is not None:
         dframe = dframe.loc[mask, :]
     return dframe
 
@@ -59,19 +76,19 @@ def get_evolutions_by_region(by_week=False, by=config.PROVINCE, sex=None,
 
     if rate_by_100k:
         if by == config.PROVINCE:
-            populations = POPULATIONS_PER_PROVINCE
+            populations = demography.get_demographic_data_by_province(sex=sex)
         else:
-            populations = POPULATIONS_PER_CA
-
+            populations = demography.get_demographic_data_by_community(sex=sex)
         evolutions = {region: (evol / populations[region]) * 1e5 for region, evol in evolutions.items()}
 
     return evolutions
 
 
 def get_evolutions_per_param(by=config.PROVINCE, sex=None, date_range=None,
-                             rate_by_100k=False, by_week=False):
+                             rate_by_100k=False, by_week=False,
+                             age_ranges=None):
     _check_by_param(by)
-    dframe = get_frame(sex=sex, date_range=date_range)    
+    dframe = get_frame(sex=sex, date_range=date_range, age_ranges=age_ranges)
 
     if by == config.PROVINCE:
         regions = dframe[config.ORIG_PROVINCE_COL].values
@@ -92,9 +109,9 @@ def get_evolutions_per_param(by=config.PROVINCE, sex=None, date_range=None,
 
     if rate_by_100k:
         if by == config.PROVINCE:
-            region_populations = POPULATIONS_PER_PROVINCE
+            region_populations = demography.get_demographic_data_by_province(sex=sex, age_ranges=age_ranges)
         else:
-            region_populations = POPULATIONS_PER_CA
+            region_populations = demography.get_demographic_data_by_community(sex=sex, age_ranges=age_ranges)
         populations = numpy.array([region_populations[region] for region in evolutions_by_param[param].columns])
         evolutions_by_param = {param: evolution.div(populations, axis=1) * 1e5 for param, evolution in evolutions_by_param.items()}
     return evolutions_by_param
@@ -111,8 +128,10 @@ def get_evolutions_for_spain(sex=None, date_range=None,
     evolutions = {param: evolution.sum(axis=1) for param, evolution in evolutions_per_province.items()}
     evolutions = pandas.DataFrame(evolutions)
 
+    spain_population = demography.get_demographic_data_for_spain(sex=sex)
+
     if rate_by_100k:
-        evolutions = (evolutions / SPAIN_POPULATION) * 1e5
+        evolutions = (evolutions / spain_population) * 1e5
 
     return evolutions
 
@@ -134,7 +153,6 @@ if __name__ == '__main__':
     first_day = last_day - datetime.timedelta(days=15)
 
     get_last_date_in_dframe(sex=None, date_range=None)
-
 
     get_evolutions_for_spain(by_week=True, sex=config.MALE,
                              date_range=(first_day, last_day),
