@@ -72,7 +72,7 @@ def get_evolutions_by_region(by_week=False, by=config.PROVINCE, sex=None,
     evolutions = {region: dframe.groupby(by=config.ORIG_DATE_COL).sum()  for region, dframe in dframes.items()}
 
     if by_week:
-        evolutions = {region: evol.resample('7D').sum() for region, evol in evolutions.items()}
+        evolutions = {region: evol.resample('7D', convention='end', closed='right', origin=evol.index[-1]).sum() for region, evol in evolutions.items()}
 
     if rate_by_100k:
         if by == config.PROVINCE:
@@ -105,7 +105,7 @@ def get_evolutions_per_param(by=config.PROVINCE, sex=None, date_range=None,
         evolutions_by_param[param] = evolutions_for_param
 
     if by_week:
-        evolutions_by_param = {param: evol.resample('7D').sum() for param, evol in evolutions_by_param.items()}
+        evolutions_by_param = {param: evol.resample('7D', convention='end', closed='right', origin=evol.index[-1]).sum() for param, evol in evolutions_by_param.items()}
 
     if rate_by_100k:
         if by == config.PROVINCE:
