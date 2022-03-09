@@ -4,3 +4,4 @@ covid/programa/.vscode/
 covid/programa/__pycache__/
 covid/programa/cache/
 covid/programa/plots/
+pyenv

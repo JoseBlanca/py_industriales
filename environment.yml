@@ -1,0 +1,12 @@
+name: population_genetics_simulations
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - numpy
+    - pandas
+    - matplotlib
+    - seaborn
+    - jupyterlab
+    - jupyter-dash
+    - jupyterlab-dash
