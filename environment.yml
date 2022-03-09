@@ -10,3 +10,4 @@ dependencies:
     - jupyterlab
     - jupyter-dash
     - jupyterlab-dash
+    - requests

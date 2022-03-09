@@ -30,4 +30,4 @@ Todos estos datos están divididos en la tabla por sexo, edad, provincia de resi
 | M | M | 20-29 | 2020-03-23 | 113 | 18 | 0 | 0 |
 | M | M | 30-39 | 2020-03-23 | 204 | 51 | 4 | 0 |
 
-El problema lo resolveremos haciendo análisis interactivos utilizando Jupyter Notebooks y, también, creando un programa tradicional de Python.
+El análisis lo haremos utilizando [Jupyter Notebooks](https://docs.jupyter.org/) y, también, creando un programa tradicional de Python.
