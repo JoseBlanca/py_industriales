@@ -1,4 +1,4 @@
-# Materiales para un curso de introducción al análisis de datos con Python.
+# Materiales para un curso de introducción al análisis de datos con Python
 
 Está escrito para estudiantes que tienen una cierta familiaridad con la programación, pero que nunca han estudiado Python.
 
