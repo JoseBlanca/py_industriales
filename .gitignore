@@ -2,7 +2,7 @@
 covid/programa/pyenv/
 covid/programa/.vscode/
 covid/programa/__pycache__/
-covid/programa/cache/
+covid/programa/downloaded_data/
 covid/programa/plots/
 pyenv
 covid/downloaded_data
