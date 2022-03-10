@@ -12,4 +12,4 @@ Alternativamente, se ha preparado un [proyecto](covid/) de análisis de datos. D
   - Utilizando [Jupyter](covid/con_jupyter/)
   - Programando una aplicación en [línea de comandos](covid/programa/)
 
-Índice completo del curso de [Python](python_para_analysis_de_datos.md).
+Índice completo del [curso](python_para_analysis_de_datos.md).
