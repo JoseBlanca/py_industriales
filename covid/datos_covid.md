@@ -11,7 +11,7 @@ Este curso lo vamos a organizar alrededor del análisis de la tabla [casos_hosp_
   - número de defunciones y
   - número de casos detectados
   
-Todos estos datos están divididos en la tabla por sexo, edad, provincia de residencia y día.
+Todos estos datos están divididos en la tabla por sexo, rango de edad, provincia de residencia y día.
 
 | provincia_iso | sexo | grupo_edad | fecha | num_casos | num_hosp | num_uci | num_def |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -30,4 +30,4 @@ Todos estos datos están divididos en la tabla por sexo, edad, provincia de resi
 | M | M | 20-29 | 2020-03-23 | 113 | 18 | 0 | 0 |
 | M | M | 30-39 | 2020-03-23 | 204 | 51 | 4 | 0 |
 
-El análisis lo haremos utilizando [Jupyter Notebooks](https://docs.jupyter.org/) y, también, creando un programa tradicional de Python.
+El análisis lo haremos primero utilizando [Jupyter Notebooks](https://docs.jupyter.org/) y, más tarde, creando un programa tradicional de Python.

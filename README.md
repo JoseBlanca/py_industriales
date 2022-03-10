@@ -9,7 +9,7 @@ El curso puede hacerse siguiendo un temario tradicional que está dividido en do
 
 Alternativamente, se ha preparado un [proyecto](covid/) de análisis de datos. De este modo se pueden ir introducciendo los conceptos de un modo más aplicado. En este proyecto se harán dos tipos de análisis:
 
-  - Utilizando [Jupyter](covid/con_jupyter/)
+  - Utilizando [Jupyter](covid/con_jupyter/). (Puedes probar una versión mínima de Jupyter con Python utilizando [Jupyterlite](https://jupyterlite.readthedocs.io))
   - Programando una aplicación en [línea de comandos](covid/programa/)
 
 Índice completo del [curso](python_para_analysis_de_datos.md).
