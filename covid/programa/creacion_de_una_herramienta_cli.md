@@ -9,6 +9,7 @@ La herramienta estará escrita en Python y se utilizará en la línea de comando
 
 ## Conocimientos previos recomendables
 
+- [Funciones](../../python/funciones.ipynb)
 - [Clases y objetos](../../python/clases_y_objetos.ipynb)
 - [Iteradores y programación funcional](../../python/iteradores.ipynb)
 - [Módulos](../../python/modulos.ipynb)
