@@ -6,3 +6,4 @@ covid/programa/downloaded_data/
 covid/programa/plots/
 pyenv
 covid/downloaded_data
+.venv/
