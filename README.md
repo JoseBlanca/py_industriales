@@ -7,7 +7,7 @@ El curso puede hacerse siguiendo un temario tradicional que está dividido en do
 - [Introducción a Python](python/introduccion_a_python.ipynb)
 - [Análisis de datos](analisis/)
 
-Alternativamente, se ha preparado un [proyecto](covid/) de análisis de datos. De este modo se pueden ir introducciendo los conceptos de un modo más aplicado. En este proyecto se harán dos tipos de análisis:
+Alternativamente, se ha preparado un [proyecto](covid/) de análisis de datos. De este modo se pueden ir introducciendo los conceptos de un modo más aplicado. En este proyecto los datos se analizarán de dos modos complementarios:
 
 - Utilizando [Jupyter](covid/con_jupyter/). (Puedes probar una versión mínima de Jupyter con Python utilizando [Jupyterlite](https://jupyterlite.readthedocs.io))
 - Programando una aplicación en [línea de comandos](covid/programa/)
