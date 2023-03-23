@@ -27,7 +27,9 @@ En [software carpentry](https://software-carpentry.org/) disponen de excelentes 
 Concretamente, tienen dos tutoriales relacionados con Python:
 
 - [Introducción a Python y numpy](https://swcarpentry.github.io/python-novice-inflammation/)
+- (Es recomendable ver antes la introducción a [Numpy](analisis/numpy.ipynb))
 - [Introducción a Python y pandas](http://swcarpentry.github.io/python-novice-gapminder/)
+- (Es recomendable ver antes la introducción a [Pandas](analisis/pandas.ipynb))
 
 ### Datos COVID
 
