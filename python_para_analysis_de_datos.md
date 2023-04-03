@@ -79,6 +79,10 @@ Concretamente, tienen dos tutoriales relacionados con Python:
 - [scikit-learn](analisis/scikit_learn.ipynb)
 - [Ejercicios scikit-learn](analisis/scikit_learn_ejercicios.ipynb)
 
+## Sistemas de control de versiones
+
+- [git](materiales/git/git.md)
+
 ## Documentación
 
 ### Libros
