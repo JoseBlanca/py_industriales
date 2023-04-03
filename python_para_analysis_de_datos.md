@@ -17,6 +17,7 @@ Además, también tenéis disponible el material organizado de un modo más conv
 
 ## Ejemplos
 
+- [Lavarse las manos](ejemplos/lavarse_las_manos.ipynb)
 - [Estadística básica](ejemplos/estadistica_basica.ipynb)
 - [Kmeans](ejemplos/plot_kmeans_assumptions.ipynb)
 - [Overfitting](ejemplos/plot_underfitting_overfitting.ipynb)
