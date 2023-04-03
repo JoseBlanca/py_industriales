@@ -81,7 +81,7 @@ Concretamente, tienen dos tutoriales relacionados con Python:
 
 ## Sistemas de control de versiones
 
-- [git](materiales/git/git.md)
+- [git](materiales_git/git.md)
 
 ## Documentación
 
