@@ -32,16 +32,16 @@ Concretamente, tienen dos tutoriales relacionados con Python:
 - [Introducción a Python y pandas](http://swcarpentry.github.io/python-novice-gapminder/)
 - (Es recomendable ver antes la introducción a [Pandas](analisis/pandas.ipynb))
 
-### Datos COVID
+## Datos COVID
 
 - [Datos COVID-19](covid/datos_covid.md)
 
-## Análisis utilizando Jupyter
+### Análisis utilizando Jupyter
 
 - [Leyendo el fichero csv](covid/con_jupyter/leer_el_fichero_csv.ipynb)
 - [Análisis de datos covid con pandas](covid/con_jupyter/analysis_con_pandas.ipynb)
 
-## Análisis creando un programa
+### Análisis creando un programa
 
 ## Introducción a Python
 
