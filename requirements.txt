@@ -6,3 +6,4 @@ jupyterlab
 jupyter-dash
 jupyterlab-dash
 requests
+scikit-learn
