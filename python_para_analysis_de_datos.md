@@ -9,7 +9,7 @@ Podéis [descargar](https://github.com/JoseBlanca/py_industriales_2021/archive/r
   git clone git@github.com:JoseBlanca/py_industriales.git
 
 El material está compuesto por [Jupyter](https://jupyter.org/) Notebooks.
-JupyterLab está incluido con la instalación de [Anaconda](https://www.anaconda.com/products/individual).
+JupyterLab está incluido con la instalación de [Anaconda](https://www.anaconda.com/download).
 
 Vamos a organizar las clases alrededor de un ejemplos prácticos
 
