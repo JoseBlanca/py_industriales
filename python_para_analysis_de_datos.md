@@ -63,10 +63,6 @@ Concretamente, tienen dos tutoriales relacionados con Python:
 - [Clases y programación orientada a objetos](python/clases_y_objetos.ipynb)
 - [Excepciones](python/excepciones.ipynb)
 - [Modulos](python/modulos.ipynb)
-  
-## Some real Python
-
-- [Some real Python presentation](https://docs.google.com/presentation/d/1ZehizZjonVDf7HkaYpp_YlriceKP4OpTal_FyaAu6Hk/edit?usp=sharing)
 
 ## Análisis de datos
 
